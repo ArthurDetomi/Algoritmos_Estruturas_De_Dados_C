@@ -1,5 +1,6 @@
 #include "util.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 void get_int_demiliter(int *n, int min, int max) {
   while (1) {
@@ -27,6 +28,22 @@ void print_arr(int *arr, int tam) {
     printf("%d ", arr[i]);
   }
   printf("\n");
+}
+
+int *get_arr(int n) {
+  // Question 8
+  if (n <= 0) {
+    return NULL;
+  }
+
+  int *arr = (int *)malloc(n * sizeof(int));
+
+  if (arr == NULL) {
+    printf("Allocation memory to array error\n");
+    exit(1);
+  }
+
+  return arr;
 }
 
 int is_value_in_matrix(int **mat, int l, int c, int value) {
